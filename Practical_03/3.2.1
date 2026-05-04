@@ -1,0 +1,30 @@
+import numpy as np
+
+# Input matrices
+print("Enter Matrix A:")
+matrix_a = np.array([list(map(int, input().split())) for i in range(3)])
+
+print("Enter Matrix B:")
+matrix_b = np.array([list(map(int, input().split())) for i in range(3)])
+
+
+# Addition
+add=matrix_a + matrix_b
+print("Addition (A + B):")
+print(add)
+# Subtraction
+sub=matrix_a-matrix_b
+print("Subtraction (A - B):")
+print(sub)
+# Multiplication (element-wise)
+mul=matrix_a*matrix_b
+print("Element-wise Multiplication (A * B):")
+print(mul)
+# Matrix multiplication (dot product)
+dot_p=np.dot(matrix_a,matrix_b)
+print("A dot B:")
+print(dot_p)
+# Transpose
+Trans=matrix_a.T
+print("Transpose of A:")
+print(Trans)
