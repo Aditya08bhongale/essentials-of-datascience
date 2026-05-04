@@ -1,0 +1,49 @@
+import pandas as pd
+import numpy as np
+
+# Load the Titanic dataset
+data = pd.read_csv('Titanic-Dataset.csv')
+data = pd.get_dummies(data, columns=['Embarked'], drop_first=True)
+
+
+# 1. Get the number of survivors by gender
+survivors_by_sex = data[data['Survived'] == 1]['Sex'].value_counts()
+print(survivors_by_sex)
+
+# 2. Get the number of non-survivors by gender
+nonsurvivors_by_sex = data[data['Survived'] == 0]['Sex'].value_counts()
+print(nonsurvivors_by_sex)
+
+# 3. Get the number of survivors by embarkation location (Embarked_S)
+survivors_embarked_s = data[data['Survived'] == 1]['Embarked_S'].value_counts()
+print(survivors_embarked_s)
+
+# 4. Get the number of non-survivors by embarkation location (Embarked_S)
+nonsurvivors_embarked_s = data[data['Survived'] == 0]['Embarked_S'].value_counts()
+print(nonsurvivors_embarked_s)
+
+# 5. Percentage of children (Age < 18) who survived
+children = data[data['Age'] < 18]
+children_survived_pct = children['Survived'].mean()
+print(children_survived_pct)
+
+# 6. Percentage of adults (Age >= 18) who survived
+adults = data[data['Age'] >= 18]
+adults_survived_pct = adults['Survived'].mean()
+print(adults_survived_pct)
+
+# 7. Median age of survivors
+median_age_survivors = data[data['Survived'] == 1]['Age'].median()
+print(median_age_survivors)
+
+# 8. Median age of non-survivors
+median_age_nonsurvivors = data[data['Survived'] == 0]['Age'].median()
+print(median_age_nonsurvivors)
+
+# 9. Median fare of survivors
+median_fare_survivors = data[data['Survived'] == 1]['Fare'].median()
+print(median_fare_survivors)
+
+# 10. Median fare of non-survivors
+median_fare_nonsurvivors = data[data['Survived'] == 0]['Fare'].median()
+print(median_fare_nonsurvivors)
